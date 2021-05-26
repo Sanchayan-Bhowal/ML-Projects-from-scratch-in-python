@@ -3,6 +3,12 @@ from matplotlib.pyplot import *
 
 def cost(theta):
     return 0.5*sum((dot(X,theta)-y)**2)
+def gradientdescent(theta):
+    storecost=list()
+    for _ in range(100):
+        theta=theta-(alpha/m)*(dot(X,theta)-y).dot(X)
+        storecost.append(cost(theta))
+    return theta,storecost
 alpha=0.01
 data=loadtxt('ex1data2.txt',delimiter=",")
 x=data[:,:-1]
@@ -16,10 +22,8 @@ x=(x-mu)/sigma
 
 #batch gradient descent
 X=concatenate([ones((m,1)),x],axis=1)
-storecost=list()
-for _ in range(100):
-    theta=theta-(alpha/m)*(dot(X,theta)-y).dot(X)
-    storecost.append(cost(theta))
+theta,storecost=gradientdescent(theta)
+
 pltx,plty=meshgrid(linspace(-2,3.2,10),linspace(-3,3,10))
 z=theta[0]+theta[1]*pltx+theta[2]*plty
 plt3d=figure()

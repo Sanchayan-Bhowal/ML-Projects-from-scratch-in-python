@@ -1,2 +1,2 @@
-# ML-Projects-from-scratch-in-python
-This repository contains all my ML projects done from scratch
+# ML-Projects
+This repository contains all my ML projects done from scratch in python
