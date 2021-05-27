@@ -13,7 +13,7 @@ def gradientdescent(theta):
     return theta,storecost
 alpha=0.01
 k=3
-data=loadtxt('ex1data1.txt',delimiter=",")
+data=loadtxt('src\ex1data1.txt',delimiter=",")
 x=data[:,:-1]
 y=data[:,-1]
 m=y.shape[0]
