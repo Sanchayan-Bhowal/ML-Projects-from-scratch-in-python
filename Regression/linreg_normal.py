@@ -9,12 +9,12 @@ x=data[:,:-1]
 y=data[:,-1]
 m=y.shape[0]
 theta=zeros(x.shape[1]+1)
+
 #feature normalization
 mu=mean(x,axis=0)
 sigma=std(x,axis=0)
 x=(x-mu)/sigma
 
-#batch gradient descent
 X=concatenate([ones((m,1)),x],axis=1)
 
 theta=linalg.pinv(X) @ y

@@ -18,9 +18,9 @@ x=data[:,:-1]
 y=data[:,-1]
 m=y.shape[0]
 
-mu=mean(x,axis=0)
+
 sigma=std(x,axis=0)
-x=(x-mu)/sigma
+x=x/sigma
 
 theta=zeros(k+1)
 newdata=[x**i for i in range(k+1)]
@@ -30,9 +30,9 @@ X=concatenate(newdata,axis=1)
 theta,storecost=gradientdescent(theta)
 
 # print()
-pltx=linspace(-100,100)
+pltx=linspace(0,23)
 
 ax=axes()
 ax.scatter(data[:,:-1],y)
-plot(pltx,polyval(theta,(pltx-mu)/sigma))
+plot(pltx,polyval(theta,pltx/sigma))
 show()
