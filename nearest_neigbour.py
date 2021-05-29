@@ -2,7 +2,6 @@ from numpy import loadtxt,array,mean,linspace
 from matplotlib.pyplot import axes,plot,show
 
 data=loadtxt('src\ex1data1.txt',delimiter=",")
-x=data[:,:-1]
 y=data[:,-1]
 m=y.shape[0]
 
@@ -16,7 +15,6 @@ def f(x):
     newdata=array(l)
     return mean(newdata[:k,-1])
 
-# print(f(1))
 pltx=linspace(0,25)
 
 ax=axes()
